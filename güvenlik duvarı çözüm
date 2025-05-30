@@ -1,0 +1,836 @@
+Güvenlik duvarı  çözüm uygulamaları 
+
+Veri ve ağ güvenliğine giriş 
+
+Bilgisayarlaşmanın artmasıyla birlikte bilgisayarda saklanan verileri koruma ihtiyacı artmıştır özellikle zaman paylaşımlı ve halka açık iletişim sistemleri gibi paylaşılmış sistemlerde veri güvenliği çok daha önemli hale gelmiştir ikinci durum ise dağıtık sistemler ve son kullanıcının terminali ile bilgisayar arasındaki haberleşme olanaklarının veri güvenliğine olan etkileridir ağ güvenliği tedbirleri verinin iletimi sırasında onun korunumunu esas alır 
+
+önemli: bir kuruluşta güvenlik saldırısı güvenlik mekanizması ve güvenlik servisi mutlaka bulunmalıdır güvenlik saldırısı kurum dışından gerçekleşirse kurumun bilgi güvenliği saygınlığını azaltır engelleme dinleme değiştirme ve yeniden oluşturma olarak dört farklı sınıfta saldırı türleri toplanır 
+Bir güvenlik atağını anlaşılması korunması ve onarımı güvenlik mekanizması ile sağlanır güvenlik servisi ise veri işleme sistemi ve kuruluşun bilgi iletim sisteminin güvenliğini arttıran sistemdir servis güvenlik saldırılarını engeller ve çeşitli güvenlik mekanizmalarını kullanır güvenlik servis özellikleri şunlardır 
+
+1 gizlilik 
+2 erişilebirlik 
+3 bütünlük 
+4 inkar edilememezlik 
+5 yetkilendirme 
+6 kullanıma hazırlık 
+
+Gizlilik
+
+İletilen verinin pasif saldırılardan korunmasıdır ayrıca trafik akışının analiz edilmekten korunması, kısaca bir saldırganın kaynak ve hedef arasında trafiği izlemesinin önlenmesidir 
+
+Yetkilendirme 
+
+Bu servis haberleşmenin yetkili kişilerce yapılmasını sağlar ikaz veya alarm gibi tek mesaj durumunda yetkilendirme sisteminin fonksiyonu, alıcıya mesajın kaynağı konusunda güven vermektir 
+
+Bütünlük
+
+Mesajın değişmeden kaynaktan hedefe gönderilmesi anlamına gelir 
+
+İnkar edilememezlik 
+
+Gönderici veya alıcının iletilen bir mesajın inkar etmemesini sağlar 
+
+Erişilebilirlik
+
+Ağ güvenliğinde host sistemlere ve uygulamalara haberleşme bağlantıları ile erişimi sınırlandırabilir bu denetimi sağlamak için her bir kullanıcıya ayrı ayrı erişim hakkı verilmelidir 
+
+Kullanıma hazırlık 
+
+Saldırıların bir kısmı kullanılabilirliğinin azalması veya verilerin kaybolmasına neden olur saldırıların diğer kısmı ise sistemi çok fazla etkilemeden sadece izleme işlemi yapabilir bu servis paket ayrımı yaparak kullanılabilirliği sürekli olmasını sağlamaya yöneliktir 
+
+
+Osi güvenlik mimarisi 
+
+Osi güvenlik mimarisi yöneticilerin güvenlik organizadyonlarını düzenlemeleri için önemli bir yaklaşımdır osi yaklaşımı güvenlik servisizleri mekanizmalar ve saldırılara yoğunlaşmıştır güvenlik servislerinde kimlik doğrulama erişim denetimi veri gizliliği veri bütünlüğü ve inkar edilememe servisleri bulunur Osi güvenlik mimarisinde güvenlik meknizlaro 2 guruba ayrılır bunlar kendine özgü güvenlik mekanizmaları ve kendine özgü olmayan güvenlik mekanizmalarıdır kendine özgü güvenlik mekanizmaları; şifrelere sayısal imzalar trafik analizini önleme yönlendirme denetimi ve onay makamını. Kullanılmadı, erişim denetimi veri bütünlüğü ve kimlik doğrulama yöntemleridir kendine özgü olmayan güvenlik mekanizmaları ise güvenli fonksyonellik, güvenlik etiketi olay ortaya çıkartma güvenlik denetleme ve izleme, güvenlik geri kazanımı mekanizmalarıdır güvenlik saldırıları ise aktif ve pasif olmak üzere 2 ye ayrılır pasif saldırılar mesajın içeriğinin ifşa edilmesi ve trafik analizidir burada veri içeriği değiştirilmediği için pasif saldırıları tespit etmek oldukça güçtür aktif saldırılar ise saldırganın kimliğini gizlemesi, geri gönderme, mesajın değiştirilmesi ve servis durdurma saldırılarıdr 
+
+Güvenlik ihtiyacı ve korunacak varlıklar 
+
+Bilgisayar ağları bilgiye kolay ulaşım için üzerinde bağlı hizmetler barındıran bilgi ağlarıdır bu ağların güvenliğinin sağlanması için bu ağ üzerinde nelerin korunacağı mutlak suretle belirlenmelidir bir ağda korunması gereken varlıklar veriler kaynaklar ve saygınlık olmak üzere 3 e ayrılır 
+
+1 veriler 
+Güvenlikle ilgili olarak gizlilik bütünlük ve kullanıma hazırlık özelliklerine sahip olmalıdır 
+
+2 kaynaklar 
+Farklı kişilerin bir kuruluşa ait bilgisayardaji sabit diskte yer alan boş alanları kendi amacı için kullanmak istemesi kabul edilebilir bir durum değildir bu kaynaklar sadece o kurum personeli tarafından kullanılmalıdır 
+
+3 saygınlık 
+Kişi ve kurumları saygınlığını ağ üzerinde de korunması önemlidir bu nedenle kurumun güvenlik politikası olmalı ve tüm personel azami ölçüde bu kurallara uymalıdır 
+
+Bilgisayar ağlarına gerçekleştirilen saldırı türleri ve sınıflandırılması:
+
+Bilgisayar ve aş saldırıları için farklı sınıflandırmalar yapılabilir bu sınıflanmalar genellikle süreçsel ve işlemsel olarak 2 ye ayrılır 
+
+1 süreçsel sınıflandırma 
+
+Süreçsel sınıflandırma işlemi kendi içerisinde engelleme dinleme değiştirme ve oluşturma olmak üzere 4de ayrılır dinleme pasif engelleme değiştirme ve oluşturma ise aktif bir saldırı türüdür 
+
+2 işlemsel sınıflandırma 
+
+Genel anlamda bir saldırı yöntemler kullanılan yollar ve sonuçlar açısından düşünülebilir bir bilgisayar veya bilgisayar ağına saldıran kişi istediği sonuçlara ulaşmak için aşağıdaki adımları izler 
+￼
+
+Cert guruplandırması 
+
+Cert tarafından yapılmış olan saldırı türleri ve açıklamaları şunlardır 
+
+1 probe scan scaw 
+
+Bir sistemdeki açık ve kullanılan portların taranması ve bu portlardan hizmetlere yönelik gerçekleştirilen saldırıların türüdür 
+
+2 prnak 
+
+Kullanıcı hesaplarının yanlış oluşturulması sonucu oluşan açıklardan gerçekleştirilen saldırı türleridir 
+
+3 e mail spoofing 
+
+Başka bir kullanıcı adına e posta gönderilmesi 
+
+4 e mail bombardement 
+
+Bir e posta adresine genelde farklı adresten çok sayıda e posta gönderilmesi 
+
+5 sendmail attack
+
+SMTP protokolüne yönelik saldırılardır 
+
+6 break in 
+
+Verilen hizmetlerin devre dışı bırakılmasına yönelik saldırı türüdür 
+
+7 intruder gained root acces 
+
+Saldırganın normal kullanıcı olarak girdiği sistemde süper kullanıcı olarak yetki kazanmasıdır 
+
+8 intruder installed trojan horse program 
+
+Saldırganın girdiği sisteme genellikle daha sonra tekrar girebilmek için yada uzaktan yönetim için ajan program yerleştirmesidir 
+
+9 intruder installed packed sniffer 
+
+Saldırman tarafından hedef makineye yönelik paket dinleyici yerleştirilerek yapılan saldırı türüdür 
+
+10 NIS attack 
+
+Ağ kullanıcı yönetim sistemine yönelik saldırı türüdür 
+
+11 NFS attack 
+
+Ağ dosya yapısına yönelik saldırı türüdür 
+
+12 Telnet/ssh attack 
+
+Uzaktan erişim protokolünün açıklarından faydalanarak yapılan saldırı türüdür 
+
+13 Rlogin or rsh attack 
+
+Uzaktan erişimde kullanılan servislerin açıklarına yönelik yapılan saldırı türüdür 
+
+14 cracked passwd
+
+Kolay tahmin edilebilir parolaların yada şifreli hallerine göre sözlük saldırısı yapma türüdür 
+
+15 anonymous FTP abuse 
+
+Anonim erişim izni veren dosya aktarım sunucularına yönelik saldırılardır 
+
+16 IP spoofing 
+
+İp adres yanıltması yoluyla yapılan saldırılardır 
+
+17 Configuration error 
+
+Çok kullanılan programdaki kullanıcılardan kaynaklanan konfigürasyon hatalarından doğan açıklıklardır 
+
+18 misuse of hosts resorces 
+
+Host kaynaklarının yanlış kullanımı sonucu ortaya çıkan açıklıklardır 
+
+19 worm,Virüs 
+
+Hostlarda kullanıcıdan habersiz çalışan yazılımlardır 
+
+
+İletişim protokollerini kullanan saldırılar 
+
+İp spoofing, TCP dizi numarası saldırısı, icmp saldırıları, ping attackları, TCP syn flood attack, ip parçalama saldırıları, internet yönlendirme saldırıları, udp sahteciliği ve dinleme, udp portunu servis dışı bırakma saldırısı, rastgele port taraması, arp saldırıları ve ortadaki adam saldırıları 
+
+
+İp saldırıları 
+İp v4 de bulunan güvenlik eskiskliklerinden faydalanarak yapılan attack türleridir 
+
+￼
+
+İşletim sistemine özel saldırılar 
+
+Exploit olarak isimlendirilen bu saldırılar sistem tabanlı olarak çalışırlar 
+
+￼
+
+Uygulama katmanı saldırıları 
+
+￼
+
+Bazı saldırı yöntemleri 
+
+1 ip spoofing:
+Aldatma saldırısının genellikle yapılan türü ip aldatmasıdır ip paketlerinin kaynak kısmının değiştirilmesiyle sağlanır böylece paketi alan hostun paketin geldiği kaynak adresini bilmesi engellenmiş olur host gelen paletin saldırgandan değil kullanıcıdan geldiğini zanneder ip adreslerine göre çalışan sercisler üzerinde oldukça etkilidir sahte paketler üretme (fabrication) bu şekilde yapılabilmektedir kaynak ip adresine göre yüksek yetki verilen bir kullanıcıya ait adres bilinmesi durumunda risk ortaya çıkmış olur saldırgan kaynak ip adresini değiştirmek suretiyle hakkı olmayan bir yetkiyle sisteme girebilir saldırganın sahte ip paketleri kullanarak sisteme girmesi durumunda verebileceği zarar ip adresine verilen yetki ile orantılıdır 
+
+2 TCP SYN akış saldırıları:
+
+İp adresi kullanılarak gerçekleştirilen bir saldırı türürür genellikle TCP/ip servislerinin devre dışı bırakılması için kullanılır TCP protokolü bağlantı temelli bir protokoldür birbiriyle iletişim kuran iki bilgisayar paketlerini kurulu bir hat üzerinden aktarır yani iletişimin başlaması için bu hattın kurulması gerekir bu işlem 3 yollu el sıkışma mekanizmasıfır 
+￼
+3lü el sıkışma mekanizmasında saldırıya açık nokta istemcinin el sıkışma mekanizmasını başlatan SYN paketini göndermesi,buna karşılık sunucudan syn+ack paketini aldıktan sonra son paket olan ack paketini göndermemesiyle oluşur böyle bir durumda sunucu tarafından açılmış ama tamamlanmamaış bir bağlantı isteği oluşacaktır bu bağlantı isteği uzun bir süre açık tutulmaktadır bu duruma yarı açık bağlantı adı verilir bu saldırıyı engellemek için 
+1 portlar kontrol edilir 
+2 portlara gelen istekler bir kuyruğa gelir ve bu kuyruğun dolması engellenir 
+3 3lü el sıkışmadaki paketler sıra numarasına göre kontrol edilerek incelenir 
+
+3 İp servis durdurma(smurf)saldırısı
+Yanlış kaynak adresi bilgisi ile oluşturulmuş İCMP “echo request” paketleri kullanılarak gerçekleştirilen çoğu durumda hedef bilgisayarım kilitlenmesine sebep olan ayrıca saldırıda hedef olarak kullanılan ağlarda önemli derecede performans sorunları yaratabilen bir saldırıdır smyrf adının verilmiş olması saldırganların bu işlevleri yapan programlardan birisinin smurf özellikli olmasıdır
+Saldırı 2 işlemden oluşmaktadır hedef alaınan bilgisayarın ip adresi kaynak adres olarak kullandığı sahte icmp echo request paketlerinin hazırlanması ve bu paketlerin herkese yayınlanacak (broadcaste) şekilde tüm bilgisayarlarw yönlendirilmesi sağlanmasıdır 
+İcmp, ağ üzerindeki hataların belirlenmesi bazı kontrol bilgilerinin karşılıklı değiştirilmesi, ağın belli açılardan gözetlenmesi imkanlarını sağlayan hizmetler verir bunlardan biride bir cihazın o anda açık olup olmadığını belli fonksiyonları yerine getirip getirmediğini belirlemekte kullanılan hizmettir icmp bu işlemi gerçekleştirmek için denetlenmek istenen cihaza echo request paketi gönderir bunu alan cihaz ise echo reply paketi ile ağ üzerinde aktif bir şekilde bulunduğunu bildirir bu sayede cihazların ulaşılabilir olup olmadığını ve sorunun nereden kaynaklandığını belirlemek mümkündür bu işleme ping adı verilir 
+
+Saldırının ikinci unsurunu icmp paketlerinin bir ağın herkese yayın ip adresine yönlendirilmesi sonucu oluşturur çopu durumda hazırlanan ip paketleri hedef adres kısmında paketin ulaşması gerken bilgisayarın ip adresi bulunur eğer hedef ip adres kısmında herkese yayın anlamına gelen adres varsa bu paket bütün bilgisayarlara yöneltilecek demektir 
+
+UDP portlarından saldırı 
+Söurf saldırısının benzeri olan icmp paketlerinin yerine udp paketlerinin kullanıldığı saldırı türürüfr bir bilgisayar üzerinde veya birkaç bilgisayar arasında gerçek udp portlarına yöneltilecek yoğun paket akışıyla gerçekleştirilir bu saldırılar tek bilgisayar üzerinde gerçekleştiriliyorsa bu bilgisayarın performansının düşmesine, birden fazla bilgisayar arasında gerçekleştirilirse ağın performansının düşmesine neden olur 
+
+NFS( network file system) saldırısı 
+NFS ağ üzerindeki PC’lerin dosyalarını birbirleriyle paylaşmalarını dağlayan bir protokoldür ancak bu protokolün açıklarının kullanılmasıyla sistem büyük zararlar görebilir NFS saldırı programları internette yaygın olarak bulunmaktadır nfse ye göre saldırılar hedef PC üzerinde süper kullanıcı yetkisiyle işlemler yapabilecek kadar ileri gidebilir NFS saldırılarının engellenmesi için
+1 güvenlik duvarında NFS servislerine ait paketlerin geçişi engellenebilit 
+2 aynı şekilde internet üzerinden bu servislere erişim yasaklanabilir 
+Bu 2 adım nfsye dışardan gelebilecek saldırılar içindir iç ağdan istemli yada istemsiz gelebilecek saldırılara karşı sistem hala açıktır iç ağda meydana gelebilecek saldırıların engellenmesş için;
+1 /etc/exports dosyası üzerinde yetkilendirme,yönlendirme,şifreleme gibi bazı düzenlemeler yapılabilir 
+2 NFS protokolü ile ilgili güncellemekler takip edilerek yama işlemi gerçekleştirilebilir 
+
+Network güvenliği:
+Sistemlerin biyümesi ve sistem içerisindeki birimlerin farklı özelliklere sahip olması durumunda her bir düğümün güvenliğinin sağlanması oldukça zorlaşacaktır bu yaklaşımdan yola çıkarak ağda hizmet veren cihazlara ağ erişimlerinin kontrol edilmesi gerekir ağ yapılarında güvenlik duvarlarının kullanılması ile birlikte komple bir güvenlik çözümü oluşturmak için aşağıdaki esaslar mutlaka yerine getirilmelidir
+1 güvenlik politikasının belirlenmesi
+2 fiziksel güvenlik 
+3 erişim kontrol 
+4 kimlik onaylama 
+5 şifreleme 
+6 takip 
+Ağ yönetimi güvenliğini sağlamak için SNMP (simple network managment protokol) SNMPv1 ve v2 olmak üzere 2 versiyonu var 
+Başlangıçta SNMP protokolü sadece bir ulaşım protokolüdür daha sonra güvenlik ile ilgili eklemeler yapılarak kimlik doğrulama ve gizlilik fonksiyonlarını içeren versiyonlarıda çıkmıştır SNMPv3 den sonrası güvenlik öne çıktı sistemlerde en önemli noktalardan bir tanesi işletim sistemlerinin güvenliğidir Windows işletim sistemleri kendi güvenlik bileşenleri ile giriş süreçlerini, yerel güvenlik makamını (local Security authorty) güvenlik hesap yöneticisini ve güvenlik başvuru izleyicisini oluştururlar unix işletim sistemlerinde ise kullanıcı hesap prensipleri belirlenebilmesi için /etc/passwd dosyasında özellikler tutulur ayrıca DoD tarafından 1985yılında yayımlanan 4 güvenlik seviyesi ve alt seviyeleri belirlenmiştir bunlar aşağıdaki tabloda gösterilmektedir 
+
+￼
+
+3 iki grafın direkt toplamı 
+
+
+
+2graf olmak üzere bu 2 grafın direkt toplamı 
+￼
+
+Örnek aşağıda verilen G1 ve G2 grafları için G1 direkt toplam G2 ifadesinin sonucunu bulunuz 
+
+￼
+
+4 iki grafın çarpımı 
+
+G1=(V1,E1) ve G2=(V2,E2
+İki Graf olmak üzere bu iki grafın çarpımı G1xG2 olarak gösterilir ve u1,V1£V1 ve u2,V2£V2 için düğünler kümesi u=(u1,u2),v=(V1,V2)£V1xV2
+
+İle tanımlı olup grafın herhangi iki u=(u1,u2),
+V=(V1,V2) £ V1 x V2 komşuluğu 
+
+￼
+
+Örnek 
+G1 ve G2 grafları aşağıda gösterilmektedir buna göre G1 x G2 işleminin sonucu nedir çizerek gösteriniz 
+
+￼
+
+5 bir düğüm ve bir kenarın silinmesi 
+
+A) alt Graf 
+G=V,E gramının içerdiği bazı noktalar ve kenarlarından oluşan grafa G nin alt grafı denir yani G1=(V1,E1 ve G2=(V2,E2) iki Graf olmak üzere 
+￼
+G2 grafına G1 in alt grafı adı verilir 
+
+B) üst Graf 
+Alt graftaki şartı 
+￼
+sağlanıyorsa g1 e g2nin üst grafı adı verilir 
+
+Örnek 
+Aşağıda verilen g1 ve g2 grafları için g2 grafının g1 grafının alt grafı olup olmadığını inceleyiniz 
+
+￼
+
+6 bir düğümün silinmesi 
+G=(V,E) grafının herhangi bir noktanın silinmesi ile oluşan G-1 grafı G grafının i dışındaki tüm düğümlerinden ve i düğümü ile etkileşimde olan kenarlar dışındaki tüm kenarlarından oluşan graftır 
+
+Örnek 
+G gramından bir noktasının silinmesi durumundan elde edilen g-1 grafını bulunuz 
+
+￼
+
+7 bir kenarın silinmesi 
+
+G=(V,E) grafının herhangi bir ei kenarının silinmesi sonucu oluşan grafa G-ei grafı adı verilir G-ei grafı G nin tüm nontalarından oluşan ve ei dışındaki tüm kenarlarından oluşan graftır 
+
+Örnek 
+G-{e3,e5} grafını çiziniz 
+
+￼
+
+8 iki düğümün büzülmesi 
+
+G=(V,E) grafının herhangi i ve j düğümleri birleştirilerek tek bir düğüm olarak kabul edilmesine iki düğümün büzülmesi bu durumda G{i,j} ile gösterilir 
+
+Örnek 
+Aşağıdaki G grafından 1 ve 2 düğümlerinin büzülmesi sonucu elde edilen G{1,2} grafını çiziniz 
+
+￼
+
+9 bir grafın tümeleyeni
+
+G=(V,E), |V|=n olacak şekilde bir Graf olsun bu durumda G grafının tümleyrni G deki kenarların Kn tam grafından silinmesi sonucu elde edilen graftır ve G’ şeklinde gösterilir 
+
+Örnek
+G grafının tümeleyenini bulunuz 
+G nin tümeleyeni K5 tam grafından {1,2},{w,3},{1,4},{1,5} silinmesiyle oluşur 
+￼
+
+￼
+
+Wireshark 
+
+Ağ üzerindeki paketleri yakalamayan yakalanan paketleri analiz etmeyi gerçekleştiren yazılıma wireshark adı verilir wireshark bir grafik arayüz üzerinden Network trafiğinin izlenmesini sağlayan hayati öneme sahip bir programdır wireshark kurulu olduğu PC üzerinden anlık Network trafiğini izlemek ve daha önce kaydedilmiş dosyaları incelemek için kullanılabilir wireshark ağ trafiğini yakalamak için faydalı olsa da aslında trafik inceleme yetenekleri bakımından incident response (olay yanıtları) için çok değerli bir araçtır uygulama indirilip kurulduktan sonra ister eindows ister linux isterse Mac tabanlı PC lerde ethernet trafiğinin anlık olarak yakalanmasını sağlar ayrıca bu uygulananın verileri wiresharka grafik bir arayüz üzerinden Ethernet trafiğini izlemek ve incelemek için yardımcı olur wireshark ağ kartı sürücüsüne (NIC) dahil edilmiştir böylece paketleri frame seviyesinden yakalayabilir windoes üzerine link seviyesinde paketleri yakalamak için wireshark ile birlikte winpcap kütüphanesi kurulmalıdır uzun süreli paket yakalama yapışacağı durumlarda özellikle Windows işletim sisteminde komut satırından çalıştırılabilen dumpcap aracı kullanılarak hafızanın dolması engellenebilir 
+
+TCP flags
+
+TCP protokolünde flags belirli bir bağlantı durumunu gösterir sorun giderme amacıyla bazı ek yardımcı bilgiler sağlar veya belirli bir bağlantının kontrolünü ele alır bayraklara kontrol bitleri de denir her bayrak bir birlik bilgiye karşılık gelir en yaygın kullanılan bayraklar syn,URG,PSH,,FIN,ack,rst
+
+URG: verilerin diğer verilere göre öncelikli olarak ele alınması gerektiğini söyleyen bayrak 
+
+ACK: bir veri paketine alındığını onaylamak için kullanılır 
+
+PSH: uygulamaya verinin hemen iletilmesi gerektiğini ve TCP segmentinin tamamını doldurmak için beklemek istemediğinizi bildirir
+
+FIN: FIn biti bir TCP bağlantısını sonlandırmak için kullanılır
+
+RST: bağlantıyı sıfırlar sunucu bu bilgiye aldığında bağlantıyı anında sonlandırır. 
+
+SYN: bu flags çoğunlukla zararlılar tarafından kullanılarak portları taramaya yarar taranması istenen porta syn paketi yollanır 
+
+Bu bayrakların dışında bant genişliği ile ilgili olarak TCP tarafında CWR,ECE,NS flaglari bulunur 
+
+HTTP request metotları:
+
+Get: get yöntemi belirtilen kaynağın bir temsilini ister get kullanan istekler yalnızca veri hakkında bilgi almalıdır 
+
+HEAD: yöntemi, get isteğine benzer bir yanıtdır fakat yanıt verilmeden dönüş sağlanır 
+
+Post: post yöntemi bir varlığı belirtilen kaynağa gönderir ve genellikle sunucuda bir durum değişikliğine sebep olur 
+
+PUT: hedef kaynağın mevcut tüm temsillerini istek yükü ile değiştirir 
+
+DElete : belirtilen kaynağı siler 
+
+Connect: hedef kaynak tarafından tanımlanan sunucuya bir tünel kurarak bağlantı sağlar 
+
+Options: hedef kaynak için iletişim seçeneklerini açıklar 
+
+TRace: hedef kaynağa giden bir yol boyunca mesaj testi gerçekleştirir 
+
+Patch: patch yöntemi bir kaynağa kısmi değişiklikler uygular 
+
+Not: get metodu istekleri bir sunucudan veri almaya yönelik şekilde guruplandırır ve sunucunun durumunu değiştirmez post metodu ise istekleri işlenmek üzere sunucuya veri işlemek için gönderir sunucunun durumunu değiştirebilir post metodu gizki bir yöntemdir 
+
+Wireshark aracının en önemli özellikleri şunlardır 
+1 ücretsiz kullanılabilir 
+2 kullanıcı dostu olması
+3 geniş protokol desteği 
+4 çoklu işlerim sistemi desteği 
+5 pek çok kritere göre paket filtreleme desteği 
+6 yakalanan paketlerin çeşitli formatlarda kayıt edilebilmesi 
+7 çeşitli istatistikler oluşturulabilmesi
+8 anlık olarak paketlerin yakalanabilmesi
+
+Wireshark aracının kullanım alanı şunlardır;
+1 protokol hatalarını çözümlemek 
+2 paket analiz işlemleri 
+3 ağ içerisindeki hataları tespit etmek 
+4 ağ hakkındaki istatistikleri görüntüleyebilmek 
+5 canlı olarak veya elimizde bulunan pcap formatlardaki verileri görüntülemek 
+6 tersine mühendislik çalışmaları gibi pek çok farklı konuda kullanılan bir araçtır 
+
+Wiresharkı kurarken indirme adresi wireshark.org/download.html 
+Linux tabanlı sistemlerde kurulum 
+Deb tabanlı sistem 
+Apt-get install wireshark 
+Rpm tabanlı sistemlerde 
+-rpm -ivh wireshark *.rpm 
+
+Not: wireshark ile paket yakalama,paket izleme ve paket yorumlama işlemleri ve gerçekleştireibilir fakat wireshark ile ağa müdehale edilemez ağda yakalanan paketin içeriğine müdehale edilemez yani kısaca wireshark ile ağda manipiladyon yapışamaz ağda manipülasyon yapmak için kullanılan araçların başında  burpsuit aracı gelir wireshark aracı sniffing işleminde tshark burpsuite TCPdump gibi en çok tercih edilen araçlardan biridir 
+
+Wireshark kullanımı 
+1 profil oluşturma 
+Wireshark ile yaptığımız analiz işlemlerini daha özel hale getirebiliriz filtrelemeye dayalı kısa yollar oluşturup veya protokol, kolon yapısı gibi mevcut özelliklere göre daha kapsamlı bir ortam hazırlayıp ağ trafiğini daha kolay ve hızlı analiz etmeyi sağlayabiliriz bu işlemler wireshark da profil oluşturma özelliği ile gerçekleştir 
+
+Profil oluştuemak için panelin en alt sağ kısmında sağ tıklanarak new(yeni) komutu verilir daha sonra karşımıza gelen yeni pencerede pentest ismini verip tamam butonuna tıklanır oluşan bu yeni profilde çeşitli filtreleme kolon yapısı ve protokol yapısındaki özelliklere göre özelleştirme işlemleri gerçekleştirilebilir 
+
+Kolon ekleme:
+Wireshark ile paketler üzerinde detaylı analiz yapabilmek için bazen farklı kolonlara ihtiyaç duyarız bu kolonları paket liste panel alanına eklemek için kolon isimlerinin olduğu alana sağ tıklayıp sütün tercihleri komutu seçilir karşımıza gelen yeni pencere de artı butonu ile yeni bir sütun eklenir başlık kısmında sütunun adı biçim kısmında ise gösterilmesini istediğiniz kolon türü seçilir ve tamam butonu ile işlem sonlandırılır silinmek istenen kolon için sütun tercihleri komutu verildikten sonra seçili sütun üzerinde eksi butonuna tıklayarak istenilen kolon listeden kaldırılır ve tamam butonuna basılır 
+
+Filtreleme yapısı
+Wireshark aracının sunduğu en önemli özelliklerden bir taneside filtreleme yapısıdır 
+Hem paket yakalama öncesinde hemde paket yakalandıktan sonra ekrana gösterim aşamasında filtreleme imkanı vardır 
+
+A) capture filtre: 
+Herhangi bir network adaptörden dinlenen tüm paketlerin içerisinden belirlenen yapıda olanları yakalamak için captıre filtre işlemi kullanılır filtreleme ekranındaki yeşil renkli bayrağa tıkladığımızda filtreleme kısmına ait örnekler karşımıza gelecektir filtreleme seçeneklerini doğru yazdığımızda arka plan rengi yeşil olacaktır 
+
+B) display filtre 
+Yakalanan paketler üzerinde filtreleme yapmak için fisokay güre alanajnı kullanırız bu filtreleme işleminde capture filtreye göre daha gelişmiş yapıda komutlar bulunur 
+Filtreleme seçeneğinin yanındaki mavi bayrak işaretine tıkladığımızda daha önceden kullanılan listeleme seçenekleri görüntülenir bunun yanı sıra filtreleri kendimiz yazdığımız zaman arka plan renginin yeşil olmasına dikkat etmeliyiz ayrıca filtreleme ekranının en sağındaki artı butonuna tıklayarak çalışma anında bir ekran filtresi butonu ekleyebiliriz 
+
+Filtrelenenin standart yapısı: 
+Filtreleme ifadelinde filtre isimleri tek başlarına kullanılabileceği gibi karşılaştırmalı ve mantıksal operatörlerlede birlikte kullanılabilir 
+
+￼
+
+￼
+
+*Wireshark da TCP udp arp icmp DNS şeklinde protokol bazlı arama gerçekleştirilebilir 
+
+*wireshark da port bazlı filtrelemeler yapılabilir port kavramı taşıma katmanında geçerli olduğu için buraya ait protokollerle kullanılmak zorundadır taşıma katmanında ise TCP ve udp olmak üzere 2 protokol bulunur dolayısıyla portlar bu protokollerden seçilir 
+
+Örnekler
+TCP.port== 3389 
+Kaynak ve hedef makinenin TCP port numarası 3389 olan paketlerin listelenmesi udp.srcport==139
+Kaynak makinede udp 139 numaralı porta gelen paketlerin listelenmesi 
+TCP.dstport!=80
+Hedef makinenin TCP 80 portu dışındaki paketlerin listelenmesi 
+TCP.srcport== 1000 and TCP.dstport==80
+Kaynak makinenin TCP 1000 portundan çıkan ve hedef makinenin 80numatalı portuna giden paketlerin listelenmesi 
+
+Bunların dışında wireshark da gelişmiş fiktreleme seçenekleride bulunur 
+
+HTTP.request.method==GET
+HTTP protokolünde get metodunu kullanan paketlerin listelenmesini sağlar 
+
+Arp.opcode==1 
+Arp request paketlerini listeler 
+
+Udp.dstport==53
+DNS paketlerinin listelenmesi 
+
+İp.addr==142.250.114.104
+Kaynak veya hedef ip adresi 142.250.114.104 olan paketlerin listelenmesi 
+
+Kaynak ip adresi 142.250.114.104 olan paketler ile birlikte arp protokolüne ait paketlerin listelenmesi 
+
+İp.scrhost == 142.250.114.104 or arp 
+
+SSL-tls paketlerini listeleyen filitreyi HTTPS protokolü kullanmadan yazınız 
+TCP.dstport==443
+
+HTTP protokolüne sahip paketlerde içerisinde Google kelimesi geçen paketlerin listelenmesi 
+
+HTTP.contains “Google”
+
+HTTP protokolünde URL alanında parametre içeren istekleri listelemek için HTTP.request.uri.query.parameter
+
+HTTP paketleri içerisinde PNG uzantılı resimleri bulmak için 
+HTTP.content_type==“image/PNG”
+
+Filtreleme butonu oluşturma 
+Wiresharkda en çok kullandığımız komutlara filtreleme işleminde kısayol oluşturabiliriz örneğin HTTP protokolündeki get metoduna sahip paketleri bulmak için filtreleme alanına 
+HTTP.request.method==“GET” komutu yazıldıktan sonra arka plan yeşil tenge döner bu komut yazılı haldeyken display filtre satırının en sağındaki artı butonuna tıklanarak filtreli bir etiket ve ve yorum gelir bu yapıda süzgeç(filtre) kısmı otomatik olarak ekranda gözükecektir tamam butonuna bastığımızda filtreleme satırının en sağında girmiş olduğumuz filtreye ait kısayol gözükecektir ileride bu kısa yol üzerinde sağ tıklayarak kaldır komutu ile ekranda görüntülenmesini engelleyebiliriz 
+
+Dosyaları kaydetme birleştirme ve yazdırma 
+
+Bazen istenilen tek bir paketi veya paketlerin kaydetme işleminiz gerekebilir bunun için display filter alanında frame numaraları ile filtreleme yapabiliriz kaydetmek istediğimiz paket numarasını paket listesi panelinden NO konumunda belirleyerek filtreleme işlemi gerçekleştirebiliriz 
+
+Örneğin 
+4 numaralı paketi kaydetmek istersek display filter kısmına Frame.number==4 yazabiliriz daha sonra dosya menüsünden kaydet seçeneği ile dosyayı kaydedebiliriz 
+Yukarıdaki işlemden farklı olarak aynı görevi şu şekilde yapabiliriz belirlenen paket çüzerinde sağ tıklayarak aplay as filter filtre olarak uygula seçeneğinden selected seçeneğine tıklanır belirlenen paket paket listesi panelinde tek olarak görüntülenecektir isterseniz bu paketi de kaydedebilirsiniz 
+
+Dosyaları birleştirme 
+İki farklı paketi birleştirmek istediğimizde ilk olarak wireshark ile ilk paket dosyası açılır daha sonra dosya menüsünden morce (birleştir) sekmesine tıklanır daha sonra karşımıza gelen pencerede ikinci paket dosyası seçilir işlem onaylandığında paketler birleştirilecektir 
+
+Yazdırma 
+Wireshark aracı yakalanan paketler için yazdırma seçeneğide sunmaktadır dosya menüsünden print seçeneği ile paketlerin tamamını yada seçilen veya paket numaralarına bağlı olarak belirlenen aralığa ait paketleri yazdırabiliriz 
+
+Paketler içerisinde arama yapma 
+Wireshark ile paketler üzerinde inceleme yaparken bulmak istediğiniz kelime veya kelime guruplarını farklı formatlarda aratabilirsiniz bunun için menünün hemen altındaki mercek ikonuna tıklayarak string,display filter,geç value,regular,explations seçenekleriyle farklı türlerde arama yapabiliriz 
+
+Kelime bazlı arama yapmak için string,
+Filtreleme komutlarına göre arama yapmak için display filter 
+Hexadecimal formatta arama yapmak için hexvalue 
+Düzenli ifade(desen bazlı) arama yapmak için regular expiration özelliği kullanılır 
+
+Follow streat ve export object
+İfadeleri Wireshark aracının en gelişmiş iki özelliğidir bu özellikler ile paket içeriklerini ve paketlerdeki nesneleri rahatça görebiliriz follow streat özelliği ağ üzerinde dinleme yaparken paketlerin ek ayrıntılarını bize gösteren özelliktir akan trafikte paketlerin anlaşılabilir olarak görüntülenmesi oldukça önemlidir örneğin internet sayfasında herhangi bir resmi görüntülerken o resmi bayt olarak ekranda görüntüleyebiliriz fakat 
+Resim formatında yani görsel olarak bunu görebilmek için follow streat özelliği kullanılır
+Bunun için 
+1 bu trafik içerisinde siyah renkle gösterilen satırlar aynı kaynağın trafiğidir siyah satırlardan herhangi bir tanesinin üzerinde sağ tıklayıp takip menüsünden follow TCP string özelliğini seçtiğimizde karşımıza o anki sitenin arka plandaki gizli yada açık HTML bilgisi gelecektir bu işlemde karşımıza çıkan ekranı farklı kaydet seçeneği ile kaydedebiliriz 
+Ekport object seçeneği ile farklı formatlardaki dosyaları görüp kayıt altına alabiliriz 
+
+Dosya menüsünden dışarı aktar seçeneği tıklandığında desteklenen protokoller dico HTTP asmmbly ve tftp protokolleridir örneğin HTTP protokolü seçilirse trafikte geçen tüm verilerin asıl formatlarını görebiliriz bunlar HTML resim video Java script gibi farklı formatlar olabilir 
+
+Name resuliton ve time display format 
+Paketler üzerinde analiz işlemlerini yaparken bazı bilgilere hızlıca ulaşmamız hayati önem taşır özellikle hedef ip adresleri bir domain adresine sahipse bunu hızlıca görmek aksiyon almamızı hızlandırır aynı şekilde port numaralarının hangi protokol tarafından kullanıldığını görmek analiz sürecini daha kolay ve güvenilir yapar wireshark ile isim çözümleme işlemlerini yapmak için görünüm menüsünden isim çözümleme sekmesinin açılması gerekir isim çözümleme seçeneğinde fiziksel adreslerin çözümlenmesi,ağ adreslerinin çözümlendirmesi ve taşıma adreslerinin çözümlenmesi seçenekleri mevcuttur fiziksel adres çözümlemesiyle Mac adresleri isimlendirilir dolayısıyla Mac adreslerinin üretici bilgisini görebiliriz ağ adresleriyle ise;
+İp adresleri bir domaine bağlı ise paketlerde ip adresine domain adresi yazılır taşıma adreslerinin çözümlenmesinde taşıma ve uygulama katmanında kullanılan protokoller isimlendirilir örneğin hedefin TCP 80 nolu portu kullanılmışsa HTTP protokolüne çevrilir 
+Her paketin bir zaman damgası vardır Wireshark aracında bunu yakalama ve gösterme zamanı damgaları olmak üzere iki farklı şekilde görürüz görünüm menüsünden zaman görüntüleme biçimi seçeneğinde farklı zaman damlaları mevcuttur 
+
+Renklendirme ayarları 
+Wireshark paketlerde renklendirme yaparak daha okunaklı takip sistemini kolaylaştırma,belirli paketleri hemen tespit etme noktasında yardımcı olmaktadır görünüm menüsü altındaki renklendirme kuralları sekmesine tıkladığımızda karşımıza renklendirme ayarları menüsü gelecektir karşımıza gelen menüde artı butonunu kullanarak en üst satırda istediğiniz filtreyi ve filtre adını yazabiliriz filtreleme satırını ekledikten sonra arka plan ve yazı rengini değiştirerek belirlediğimiz renklerde uygun paketlerin gelip gelmediğini kontrol edebiliriz 
+
+İstatistiksel veriler 
+Wireshark aracı ile yakalanan paketler üzerinde istatistiksel verilere bakarak analiz sürecini derinleştirebilir ve anlamlaştırabiliriz bunun için istatistikler menüsü kullanılır 
+
+*yakalama (Casper file proprrtise)dosyası özellikleri 
+Yakalanan tüm paketler üzerinde toplu olarak istatistiksel veriler sunan alandır dosya yolu boyutu paketlerin yakalanış süreleri ortalama zaman değerleri gibi farklı bilgileri bizim karşımıza getirir 
+
+*uç noktalar (and point) 
+Paketler içerisinde en son yapılan veri iletişimini Ethernet ip TCP udp kategorilerinde vb görmemizi dağlar 
+
+*konuşmalar(comverzations)
+Yakalanan paketler üzerinde cihazlar arasında yapılan karşılıklı veri alışverişlerine dair bilgiler sunar Ethernet ip TCP udp alanlarında kategorize edilmiş bilgileri görebiliriz bir verinin hangi kaynaktan hangi hedefe ggittiğini; 
+Ethernet seviyesinde Mac adres bazlı 
+Network katmanında ip seviyesinde veri iletişimi 
+Taşıma katmanında TCP ve udp protokolleri üzerinde yapılan işlemleri görebiliriz  
+
+*giriş çıkış grafikleri 
+Bu özellikle paketleri grafiksel yapıda görebilir ve şekillendirebiliriz istediğimiz paketleri filtreleyerek ayrı ayrı renk ve sitilde görebiliriz grafikte görmek istediğimiz paketleri filtrelemek için artı butonunu kullanabiliriz 
+
+*akış grafiği (flow Graf) 
+Bu özellikle paketlerin kronolojik olarak bağlantılarını akış yapısı içinde görebiliriz örneğin TCP protokolüne ait paketlerin bağlantıları üzerinden iletişime geçen ip adreslerini ve gönderilen paketlerin bayrak yapılarını port numaralarını ve bunun gibi detay bilgilerini görebiliriz bu özellik anlık olarak paket hareketlerini görmemizde önemli bir kolaylık sağlar 
+
+*protokol hiyerarşisi 
+İstatistiksel bir veriler içerisinde kullanacağımız en önemli özelliklerden bir tanesi protokol bazlı hiyerarşi durumdururr tüm paketlerin üzerinde hızlı işlem yapmak ve paketleri anlamalandırmak için paketlerin taşıma ve uygulama katmanındaki yapılarını görmemiz gerekebilir bunun için protokol hiyerarşisi kullanılır örneğin TCP protokol kümesi ve onun içerisinde de HTTP protokolüne ait paket bilgilerini görebiliriz 
+
+SSL TRAFİĞİNİ ÇÖZME 
+
+Ssl(secure socket layer) sunucuyla istemci arasında şifrelenmiş bir bağlantı oluşturmak için kullanılan bir güvenlik standardıdır SSL aracılığıyla kredi kartı bilgileri kimlik doğrulama bilgileri (kullanıcı adı şifre) ve bu tarz hassas bilgiler güvenli bir şekilde güvensiz bir ortam olan internet üzerinden gönderilebilmektedir normal şartlarda tarayıcı ve web sunucusu arasındaki trafik  açık olarak sağlanır bu nedenle araya gitme dinleme ve bunun gibi farklı yollarla her türlü verinin başkalarının eline geçmesine olanak tanınır ssl protokolü ile şifreli bir şekilde gerçekleştirilen bir network teafiğini kayıt altınsalar ve var olan ssl şifresi ile bu trafiği çözmek için aşağıdaki adımlar uygulanır 
+
+1 yakalanan paket dosyası açılır (.pki)
+2 edit menüsünden preferences sekmesi seçilir daha sonra karşımıza gelen pencereden sol sütundaki protokols alanı içerisinden ssl protokolü tıklanır 
+3 karşımıza çıkan yeni pencerede rsa jet lists alanının yanındaki edit butonuna tıklayarak yeni açılan pencerede new metodu seçilir 
+4 karşımıza gelen geni pencerede ip port protokol ve key alanları doldurulmalıdır bu örnek için ip 127.0.0.1 port 443 protokol HTTP olarak girilir aynı pencerede key file kısmına ise bilgisayarımızda bulunan zip dosyası içerisindeki .key formatlı dosyanın adı birebir yazılır 
+5 daha sonra ilk önce okey sonra apply butonuna tıkladığımızda wireshark üzerinde şifreleme veriler açılacaktır 
+6 file export object HTTP sekmelerini takip ettiğinizde wiresharkın yakaladığı verileri açık bir şekilde görebiliriz 
+
+Expert info 
+Paketler wireshark aracı tarafından da analiz edildiğinden paketlerdeki hata ve bilgilendirme alanlarının dereceleri ölçülebilir özellikle kayıp bozuk hatalı paketler ile ip çakışmalarını bu özellik sayesinde net bir şekilde görme şansına sahip olabiliriz 
+
+
+İp yönlendirme 
+İp yönlendirme TCP ip ağlarının bel kemiği denilebilir ağlar arası ip paket aktarımı,paketlerin en uygun yolları takip ederek bilgisayar sistemleri arasında gidip gelmesi ip yönlendirme tarafından gerçekleştirilir yönlendirme görevi temel olarak yönlendiricilerle geçit yolu cihazlarına bırakılmıştır komple ağ oluşturulmasında bağlantı yada geçit noktasına sahip bu cihazların başarısı ve yönlendirmede kullandıkları algoritmalar göz önüne alınması gereken önemli unsurlardır tek segmentli bir TCP ip ağında ip yönlendirmeye çok fazla gerek yoktur 
+Sistemlere yalnızca ip adresi ve ağ maskesinin ayarlarının yapılması yeterli olur çünkü bütün aktarım lan içerisinde kalmaktadır fakat bir ağ birkaç tane lanın birleşmesinden oluşmuşsa veya internet gibi global bir Ağ bağlıysa sistemlere yerleştirilen ip bilgilerine ek olarak yönlendirme bilgileri de verilmelidir yönlendirme işinin gerçekleştirilmesi için sistemler üzerinde yönlendirme tablosu tutulur bu tablo gönderilecek veri paketlerinin alıcısına ulaşmadı için hangi yolun izleneceğini belirten yönlendirme bilgilerini tutar bu bilgiler ya ağ yöneticisi tarafından elle verilir yada kullanılan yönlendirme algoritmasınca doldurulur ve güncellenir
+
+Bir ağ da yönlendirme 
+Yerel bir ağ olan lan üzerinde yönlendirme işi kolaylıkla yapılabilir bu tür ağlarda yapılmadı gereken,sistemlere tcpipnin yüklenmesi ve sistemlere atanacak ip adresi ile ağ maskesini ayarlarının yapılması yeterlidir 
+￼
+Eğer mevcut ağ yukarıdaki şekildeki gibiyse yönlendirme işleri biraz karışır şekilde internet bitnet torosnet gibi 3 tane geniş alan ağı (WAN) ve farklı tıpolojilere sayip 4tanede lan ağı görünmektedir bu bağlantı şekli aslında var olan uygulamanın bir kesitidir yukarıdaki şekle bakıldığında farklı topolojilere sahip lanların birbirine köprü cihazı ile bağlandığı ve daha sonra iki ayrı noktadan yönlendirici ile internet ve bitnet ağlarına bağlandığı görülür genel olarak bir ip paketi alıcısına ulaşıncaya kadar bir çok noktadan geçer her nokta, gelen veri paketi kendisine ait değilse onu alıcısına ulaşacak biçimde doğru yönlendirmelidir bunun için yönlendirme görevi tapılan her noktada yönlendirme parametrelerine bakılarak gelen veri paketleri ileriye doğru aktarılır 
+
+Yönlendirici cihazlar için ip bilgisi 
+İnternet üzerinde farklı boyutlarda binlerce ip yönlendirici cihaz bulunur küçük bir yerel ağdaki bilgisayarşarın internete girebilmesi için ip yönlendiricili cihazlar kullanılır ağ üzerindeki ip yönlendiriciler internetin temel çatısını oluşturur ve minimum ip bilgisine ek olarak başka bilgilerin yerleştirilmesine gerek duyar minimum ip bilgisi yönlendirici için olmazsa olmaz şartlardan birisidir fakat tek başına yeterli değildir çünkü ip bilgisi yönlendiricinin ağa eklenmesine yani ona ağ üzerinden erişilmesini sağlar fakat onun asıl görevi olan yönlendirme görevinin yerine getirmesini sağlamaz yönlendiricilere minimum ip bilgisi dışında WAN portu kurulumu için gerekli parametreler ve hangi yönlendirme algoritmasının yapılacağı bilgisi verilmektedir 
+
+İp yönlendirme cihazlar ve yönlendirme işlemi 
+
+￼
+
+Birbirinden bağımsız WANların birbiriyle iletişim kurabilmesi için ip yönlendirici cihazlar kullanılır lanlar birbirine çok yakınsa yukarıdaki şekilde olduğu gibi aynı yönlendirici cihazın lan portları üzerinden bağlanılalir fakat lanlar birbirine uzaksa her lanın etrafına bir adet yönlendirici konulur veya var olan yönlendiricinin diğer WAN portu üzerinden bağlantı yapılır bu durumda yönlendiriciler arasında bağlantılar da birer alt ağ gibi davranır ip yönlendirici cihazlar kendilerine gelen paketleri paket başlığı içerisindeki alıcı adres kısmına ve kendine tanımlı ağ maskesi değerine bakarak gitmesi gereken ilgili porta aktarır yönlendiriciler tekil olarak ip adresinin kendisiyle değil ağ adresilyle ilgilenir 
+Yönlendirici,yalnızca bir lanı bağlayan bir kenar yönlendirici ise fazla bir karışıklık yoktur fakat merkez yönlendiricilerde pek çok port bulunur yönlendirme tablosu oldukça dolu ve karmaşık olabilir 
+Örneğin paket başlığındaki alıcı ip adresi ile kendisine girilmiş olan ağ maskeleri işleme sokulduğunda aynı paket için birden çok alıcı portu çıkabilir bu durumda hangi porta yönlendirme yapacağı,en uzun uyuşma gösteren algoritmaya göre belirlenir yani en küçük alt ağa yönlendirme yapılır bu yüzden karmaşık yönlendirme tabloları düzenlenirken dikkatli olunmalıdır aksi durumda bazı ip adreslerine ulaşılmıyor olabilir 
+
+Mobil uygulama güvenliği 
+Uygulama güvenliği doğrulama standartı programcılar güvenlikçiler hatta programı kullanan müşteriler için uygulama güvenliği gereksinimlerinden oluşan bir listedir mobil uygulama güvenliği için 2024 yılına ait owasp top 10; 
+
+M1: sahtekar kimlik kullanımı
+Tehdit ajanları:
+Uygulamaya özel:mobil uygulamalarda sabit kodlanmış kimlik bilgilerinden ve uygunsuz kimlik bilgileri kullanımından yararlanan tehdit aracıları kamuya açık veya özel olarak oluşturulmuş araçları kullanan otomatik saldırılar içerebilir bu tür ajanlar potansiyel olarak sabit kodlanmış kimlik bilgilerini tespit edip kullanabilir veya kimlik bilgilerinin uygunsuz kullanımından kaynaklanan zayıflıklardan yararlanabilir 
+
+Atak vektörleri:
+İstismar edilebilirlik(KOLAY): 
+Saldırganlar hem sabit kodlanmış kimlik bilgilerindeki hem de kimlik bilgilerinin uygunsuz kullanımındaki güvenlik açıklarından yararlanabilir bu güvenlik açıkları belirlendikten sonra saldırgan sabit kodlanmış kimlik bilgilerini kullanarak mobil uygulamanın hassas görevlerine yetkisiz erişim sağlayabilir ayrıca kimlik bilgilerini kötüye kullanabilirler yani uygunsuz şekilde doğrulanmış veya saklanmış kimlik bilgileri yoluyla erişim elde ederek meşru erişim ihtiyacını atlayabilirler 
+
+Güvenlik zayıflığı:
+Yaygınlık(ortak)
+Tespit edilebilrilik(kolay)
+Sabit kodlanmış kimlik bilgilerinin kullanılmadı ve uygun olmayan şekilde kullanılmadı gibi kimlik bilgisi yönetiminin kötü veya art niyetli uygulanması ciddi güvenlik zayıflıklarına yol açabilir kapsamlı bir güvenlik testi süreci bu sorunları tespit etmeyi amaçlamalıdır örneğin güvenlik testi uzmanları mobil uygulamanın kaynak kodunda veya herhangi bir yapılandırma dosyasında sabit kodlanmış kimlik bilgilerini belirlemeye çalışmalıdır 
+
+Teknik etkiler:
+Etki(şiddetli):
+Yetersiz kimlik bilgisi yönetimi bir çok önemli teknik etkiye yol açabilir yetkisiz kullanıcılar mobil uygulamadaki veya arka uç sistemlerdeki hassas bilgilere veya işlevlere erişim sağlayabilir bu veri ihlallerine kullanıcı gizliliğinin kaybına dolandırıcılık faaliyetlerine ve yönetim işlerine olasi bir erişime yol açabilir 
+Ticari etkiler:
+Etki(şiddetli):
+Zayıf kimlik bilgisi yönetiminin iş üzerindeki etkisi önemli olabilir 
+1 itibar zararı 
+2 bilgi hırsızlığı 
+3 sahtekarlık 
+4 verilere yetkisiz erişim 
+
+Uygunsuz kimlik bilgisi kullanımına karşı savunmasız mıyım ? 
+Mobil uygulamanızın savunmasız olabileceğini gösteren bazı göstergeler şunlardır 
+1 sabit kodlanmış kimlik bilgileri: mobil uygulamanın kaynak kodundan veya herhangi bir yapılandırma dosyasında sabit kodlanmış kimlik bilgileri içermesi güvenlik açığının bir göstergesidir 
+2 güvenli olmayan kimlik bilgisi iletimi kimlik bilgileri şifreleme olmadan veya güvenli olmayan kanallar aracılığıyla aktarılıyorsa bu bir güvenlik açığına işaret edebilir 
+3 güvenli olmayan kimlik bilgisi depolama
+Mobil uygulama kullanıcı kimlik bilgilerini cihazda güvenli olmayan bir şekilde saklıyorsa bu bir güvenlik açığını temsil edebilir 
+4 zayıf kullanıcı kimlik doğrulaması 
+Kullanıcı kimlik doğrulaması zayıf protokollere dayanıyorsa veya kolay atlamaya izin veriyorsa bu bir güvenlik açığının işareti olabilir 
+
+Uygunsuz kimlik bilgisi kullanımının önlenmesinin yolları:
+
+1 sabit kodlanmış kimlik bilgilerini kullanmaktan kaçının 
+2 kullanıcı kimlik bilgilerini doğru şekilde kullanın 
+3 iletim sırasında kimlik bilgilerini şifreleyin 
+4 kullanıcı kimlik bilgilerini cihaz içerisinde saklamayın 
+5 güçlü kullanıcı kimlik doğrulama protokolleri uygulayın 
+6 kullanılan API anahtarlarını veya belirteçlerini düzenli olarak güncelleyin ve döndürün 
+
+M2:yetersiz tedarik zinciri güvenliği 
+Tehdit ajanları:
+Uygulamaya özel: bir saldırgan mobil uygulama tedarik zincirindeki güvenlik açıklarından yararlanarak uygulama işlevselliğini manipüle edebilir örneğin mobil uygulamanın kod tabanına kötü amaçlı kod ekleyebilir veya oluşturma işlemi sırasında arka kapıları casus yazılımları veya diğer kötü amaçlı kodları eklemek için kodu değiştirebilir bu işlem daldırganın verileri çalmasına kullanıcıları gözetlemesine veya mobil cihazın kontrolünü ele geçirmesine olanak tanıyabilir ayrıca saldırgan mobil uygulamaya veya arka uç sunuculara erişim sağlamak için üçüncü taraf yazılım kitaplıklarındaki satıcılardaki veya sabit kodlanmış kimlik bilgilerindeki güvenlik açıklarından yararlanabilir bu yöntemle yetkisiz veri erişimi veya manipüladyonu hizmet reddi yada mobil uygulamanın veya cihazın tamamen ele geçirilmesi gerçekleşebilir 
+
+Atak vektörleri:
+İstismar edilebilirlik(orta) 
+Yetersiz tedarik zinciri güvenlik açığından yararlanmanın birden fazla yolu vardır örneğin içerden gelen bir tehdit aracısı yada saldırgan uygulamnaın geliştirme aşaması sırasında kötü amaçlı kod enjekte edebilir daha sonra kötü amaçlı kodu güvenlilir olarak imzalamak için uygulama imza anahtarlarını yada sertifikalarını tehlikeye atabilir ayrıca bir tehdit aracısı 3. Parti kitaplıklardaki veya uygulamada kullanılan bileşenlerdeki güvenlik açıklarından yararlanabilir 
+Zayıf güvenlik: 
+Yaygınlık(ortak)
+Tespit edilebilirlik(zor)
+Yetersiz tedarik zinciri güvenlik açığı güvenli kodlama uygulamalarının eksikliği yetersiz kod incelemeleri ve testlerin uygulamaya güvenlik açıklarıyla dahil edilmesiyle birlikte ortaya çıkar yetersiz tedarik zinciri güvenlik açıklarının diğer nedenleri arasında yetersiz veya güvenli olmayan uygulama imzalama ve dağıtım süreci 3. Taraf yazılım bileşenleri veya kitaplıklarındaki zayıflık,veriler,şifreleme depolama için yetersiz güvenlik kontrolleri yada hassas verilerin yetkisiz biçimde erişime açık hale getirilmesi yer alır 
+Teknik etkiler:
+Etki(şiddetli)
+Teknik etki istismarın niteliğine bağlıdır fakat şunları içerebilir 
+1 veri ihalali
+2 kötü amaçlı yazılım bulaşması
+3 yetkisiz erişim 
+4 sistemin ele geçirilmesi 
+
+Ticari etkiler 
+Etki(şiddetli):
+1 finansal kayıplar 
+2 itibar kaybı yada zedelenmesi 
+3 yasal ve düzenleyici sonuçlar 
+4 tedarik zincirinin bozulması 
+
+yetersiz tedarik zinciri güvenlik açığının ortaya çıkma sebepleri:
+1 3. Taraf bileşenlerde güvenlik eksiği 
+2 kötü amaçlı içeriden tehdit 
+3 yetersiz test ve doğrulama işlemleri 
+4 güvenlik bilincinin eksikliği 
+
+Yetersiz tedarik zinciri güvenlik açığı nasıl önlenir
+
+1 güvenlik açıklarını belirlemek ve azaltmak için mobil uygulama geliştirme yaşam döngüsü boyunca güvenlik kodlama uygulamaları kod incelemesi ve testler uygulanmalıdır 
+
+2 saldırganların kötü amaçlı kod imzalamasını ve dağıtmasını önlemek için 
+Uygulama imzalama ve dağıtım süreçlerinin güvenli olması sağlanmalıdır 
+
+3 güvenlik açığı riskini azaltmak için yalnızca güvenilir ve doğrulanmış 3. Taraf kitaplıkları veya bileşenleri kullanılmalıdır 
+
+4 saldırganların uygulamadaki güvenlik açıklarından yararlanmasını önlemek amacıyla uygulama güncellemeleri yamalar ve sürümler için güvenlik kontrolleri oluşturulmalıdır 
+
+5 olayları zamanında tespit etmek ve bunlara yanıt vermek için güvenlik testleri taramalar veya diğer teknikler aracılığıyla tedarik zinciri güvenliği olayları izlenmeli ve tespit edilmelidir 
+
+M3: güvenli olmayan kimlik doğrulama veya yetkilendirme
+
+Tehdit ajanları:
+Uygulamaya özel: 
+Kimlik doğrulama ve yetkilendirme güvenlik açıklarından yararlanan tehdit aracıları bunu genellikle mevcut veya özel olarak oluşturulmuş araçları kullanan otomatik saldırılar aracılığıyla gerçekleştirir 
+
+Atak vektörleri: 
+İstismar edilebilirlik(kolay):
+Düşman, kimlik doğrulama ve yetkilendirme şenasındaki güvenlik açıklarını analadıktan sonra bu zayıflıklardan yararlanmak için 2 farklı yol izleyebilir hizmet isteklerini doğrudan mobil uygulamanın arka uç sunucusuna göndererek mobil uygulama ile herhangi bir doğrudan etkileşimi atlatarak kimlik doğrulamayı taklit edebilir 2. Olarak ise kimlik doğrulama kontrolünü başarı ile geçtikten sonra uygulamayı meşru bir kullanıcı olarak giriş yapabilir ve ardından kimlik doğrulamayı zorunlu kılabilir yönetim işlevlerini yönetmek için güvenlik açığı bulunan bir uç noktaya mutlaka göz atılmalıdır her iki yararlanma yöntemide genellikle saldırganın sahip olduğu cihaz veya botnetler içerisindeki mobil kötü amaçlı yazılımlar ile gerçekleştirilir 
+
+Güvenlik zayıflığı:
+Yaygınlık(ortak) 
+Tespit edilebilirlik(orta) 
+
+Mobil uygulamalardaki zayıf yetkilendirme ve kimlik doğrulama planlarını test etmek için farklı stratejiler kullanılabilir yetkilendirme için mobil uygulamaya ikili saldırılar gerçekleştirilebilir ve özellikle mobil uygulama çevrimdışı modayken yalnızca daha yüksek ayrıcalıklara sahip bir kullanıcı tarafından yürütülebilmesi gereken ayrıcalıklı görevler yürütmeye zorlanabilir buna ilaveten arka uç sunucusuna yönelik hassas işlevsellik için karşılık gelen POST/GET istekleri dahilinde düşük ayrıcalıklı bir oturum belirteci kullanarak herhangi bir ayrıcalıklı işlev yürütülmeye çalışılmalıdır 
+
+Yetersiz veya eksik yetkilendirme planları potansiyel olarak bir saldırganı,mobil uygulamanın kimliği doğrulanmış ancak daha düşük ayrıcalıklara sahip bir kullanıcıyı kullanarak yetki sahibi olmaması gereken işlevleri yürütmesi izni verebilir 
+
+Teknik etkiler
+Etki(şiddetli)
+Yetersiz yetkilendirme söz konusu olduğunda yönetim işlevlerinin aşırı ayrıcalıkla yönetilmesi sistemlere veya hassas verilere erişime zarar verebilir zayıf kimlik doğrulamanın teknik yansımaları çözümün bir eylem isteği gerçekleştiren kullanıcıyı tanımlayamadığı durumlarda ortaya çıkar bu işlem kullanıcının kimliği belirlenöeediği için kullanıcı etkinliğinin kayıt altına alınamamasıyla veya denetlenememesine neden olur ayrıca kimlik doğrulamadaki hatalar aynı zamanda yetkilendirme hatalarını da ortaya çıkartır kimlik doğrulama kontrolleri başarısız olduğunda çözüm kullanıcının rolüne ve ilgili izinlere yakından bağlı olan kullanıcının kimliğini doğrulayamaz bir saldırganın hassas görevleri anonim olarak yürütebilmesi temeldeki kodun eylem isteğinde bulunan kullanıcının isimlerini doğrulamadığını gösterir sonuç olarak kodun anonim olarak yürütülmesi hem kimlik doğrulama hemde yetkilendirme kontrollerindeki hataların altını çizer 
+
+Ticari etkiler
+1 itibar kaybı 
+2 bilgi hırsızlığı 
+3 verilere yetkisiz erişim 
+4 veri sahtekarlığı 
+
+Güvenli olmayan yetkilendirmenin göstergeleri şunlardır 
+1 güvenli olmayan doğrudan nesne referansı (IDOR) güvenlik açıklarının varlığın
+2 gizli uç noktalar 
+3 kullanıcı rolü veya izin iletimleri 
+
+Güvenli olmayan kimlik doğrulama göstergeleri şunlardır 
+
+1 anonim arka üç api yürütmesi 
+2 parolaların veya paylaşılan surların yerel olarak depolanmadı 
+3zayıf parola politikası 
+4 face is veya Touch ID gibi özelliklerin kullanımı
+
+Güvensiz kimlik doğrulama ve yetkilendirmeyi önlemenin yolları 
+1 güvenli olmayan mobil uygulama kimlik doğrulama tasarım modüllerinden kaçılamalıdır 
+2 kimlik doğrulama adımları güçlendirilmelidir 
+3 güvenli olmayan yetkilendirmemin engellenmesi sağlanmalıdır 
+
+
+M4: yetersiz giriş çıkış doğrulamadı 
+Mobil uygulamadaki kullanıcıların verilerinin dışarıdaki kaynaklardan gelen;
+1 yollarının düzgün belirtilmemesi 
+2 verilerin prosedürlere uygun olmayan yöntemlerle saklanması veya işlenmesi 
+3 verilerin temizliğinin yeterince yapılmaması 
+Durumlarında ciddi güvenlik açıkları ortaya çıkar buradaki tehdit ajanları uygulamaya özel olmakla birlikte genel yayılmı oldukça kolaydır bu tür verileri uygun şekilde doğrulama ve temizleme konusunda sorun yaşanırsa sqli injecksyonu,command injectionu ve siteler arası komut dosyası çalıştırma (Xss) saldırıları ile karşı karşıya kalınır 
+
+Atak vektörleri:istismar edilebilir durumu zordur yetersiz giriş çıkış doğrulaması sebebiyle güvenlik açıkları yetkisiz erişime veri manipülasyonuna uzaktan kod yürütülmesine ve tüm arka uç sistemin tehlikeye atılmasına neden olabilir 
+
+Güvenlik zayıflığı:tespit edilebilirliği kolay yaygınlık seviyesi ise ortalamadır bu güvenlik açığından aşağıdaki şekillerde yararlanılabilir 
+
+1 kullanıcı girişi tam olarak kontrol edilmediğinde saldırganlar kötü amaçlı yazılım vasıtasıyla giriş berilerini manipüle edebilir bu sayede güvenlik önlemleri atlatılarak kod yürütme ve yetkisiz erişim saldırıları yaşanabilir 
+
+2 kullanıcının girdiği verilerin çıktısı uygun şekilde doğrulanmazsa ve temizlenmezse yine saldırganlar sisteme kötü amaçlı komut dosyalarını enjekte edebilir bu işlem Xss saldırılarına,veri hırsızlığına oturumun ele geçirilmesine veya görüntülenen içeriğin manipülasyonuna yol açabilir 
+
+3 bağlamsal doğrulama eksikliği (en önemlisi bu)
+Belirli bağlamın ve beklenen veri formatlarının dikkate alınmaması sql injeksiyonu veya format dizesi saldırılarına neden olabilir bunlar doğrulanmamış kullanıcı girişini doğrudan veritabanı sorgularına dahil edilmesi veya biçim dizesi işlevlerinde uygundux şekilde işlenmesiyle ortaya çıkar bu durumda özellikle sorguların değiştirilmesi veya rastgele kod yürütme güvenlik açıklarına olanak tanınır 
+
+4 veri bütünlüğü doğrulanmazsa uygulama verilerin bozulmasına veya yanlış işlenmesine karşı savunmasız hale gelir bu durumda saldırganlar sistem değişkenlerine müdahale edebilir veya uygulamanın işlevselliğini bozacak hatalı biçimlendirilmiş veriler sunabilir 
+
+Teknik etkiler: etki durumu şiddetlidir kod yürütme beri ihalali sistemin ele geçirilmesi uygulamanın bozulması itibar kaybı gibi problemlere neden olabilir 
+
+Ticari etkiler: etki durumu şiddetlidir özellikle veri bütünlüğünün bozulmasından dolayı yasal ve uyumluluk hükümleri gereğince mali kayıplara neden olabileceği gibi itibar kaybıda yaşanabilir 
+
+Yetersiz giriş çıkış doğrulamasının önlenmesi 
+Bu tür güvenlik açıklarını önlemek için 
+1-katı kurallara bağlı doğrulama teknikleri kullanılarak kullanıcı girilleri doğrulanır kullanıcı girilleri mutlaka temizlenir
+2-Xss saldırılarını önlemek için çıkış verileri temizlenir 
+3-veri bağlamına dayalı olarak özel doğrulamalar gerçekleştirilir 
+4-veri bozulmalarını veya yetkisiz değişiklikleri tespit etmek ve önlemek için veri bütünlüğü kontrollerini uygulayın 
+5-sqlinjection önlemek için parametreli sorgular ve hazırlanmış ifadeler kullanın 
+6-güvenlik açıklarını bekirlemek ve gidermek için düzenli sızma testi ve güvenlik değerlendirmeleri gerçekleştirin 
+
+M5:güvenli olmayan iletişim 
+Mobil uygulamalar birden fazla uzak sunucuyla iletişim halinde olarak veri alışverişi gerçekleştirirler veri aktarımı sırasında veriler genellikle mobil cihazın operatöründen veya internetten geçmektedir nu durumda bu ağı dinleyen herhangi bir saldırgan bu verileri kullanılan protokole bağlı olarak şifreli yada açık metin (clear texr) olarak yakalayabilir ve içeriğini değiştirebilir buradaki tehdit ajanları uygulamaya özeldir tehdit araçları ise güvenliği ihlal edilmiş bir wifi,baz istasyonları yönlendiriciler proxyler veya mobil cihazlarda bulunan kötü amaçlı yazılımlardır 
+Atak vektörleri: istismar edilebilme durumu kolaydır genel olarak mobil uygulamalar SSL/tls gibi kriptografik protokollere yanıt verirken bazı durumlarda şu kusurlar bulunabilir 
+1-kullanımdan kaldırılmış protokolleri hatalı yapılandırma ayarlarının kullanmadı
+2-süresi dolmuş iptal edilmiş yada kendinden imzalı sssl sertifikalarının kabul edilmesi 
+3-yalnızca kimlik doğrulama gibi belirli iş akışlarında ssl ve tlse sahip olunmadı 
+
+Güvenlik zayıflığı tespit edilebilirliği ortalama yaygınlık seviyesi ortalamadır mobil uygulamaların pek çoğunda Ağ güvenliğine yönelik tutarsızlıklar yaşanmaktadır bu tutarsızlıklar verileri ve oturum kimliklerini ele geçirmeye açık hale getiren güvenlik açıklarına yol açabilir t
+Teknik etkiler etki durumu şiddetlidir bu güvenlik açığı nedeniyle hesabın ele geçirilmesi kullanıcının kimliğine bürünülmrsi gibi veri sızıntılarına yol açabilecek kullanıcının verileri açığa çıkabilir 
+
+Ticari etkiler: genellikle veri gizliliği ihlaline yol açılır bu durum nedeniyle kimlik hırsızlığı dolandırıcılık veya itibar hasarı yaşanabilir 
+
+Güvensiz iletişimi önlemenin yolları:
+1-mobil yygulamanın verilerini hizmet alınan veya hizmet verilen 3. Parti APInı bağlandığı noktalara ssl veya tls taraması uygulanmalı
+2-sosyal ağlar 3. Parti analiz şirketleri gibi dış kurtuluşlarının ssl sürümlerini kullanarak hesap oluşturulmalıdıt 
+3-kullanıcının kimlik bilgilerini açığa çıkarabileceğinden eksik yada hatalı ssl oturumlarından kaçınılmalıdır 
+
+m6 yetersiz gizlilik kontrolleri:
+
+Herhangi bir kullanıcıya ait isim kredi kartı bilgisi tc kimlik no e posta vb bilgilerin korunöasıyla olan uygulamaya özel yöntemlerdir saldırganlar bu yöntemi atlatarak dolandırıcılık yapmak için kurbanın kimliğine bürünmek,kurbanın ödeme verilerini kötüye kullanmak,kurbanda kişisel veriler üzerinden şantaj yapmak veya kurbanın kişisiel verilerini manipülr etmek yada yok etmek yoluyla kullanıcılara zarar verebilirler bu saldırı çeşidinde veri gizliliği veri bütünlülüğü ve verilerin kullanılabilirliği ihlal edilebilir 
+
+Saldırı vektörleri: istismar edilebilme durumu ortalamadır herhangi bir mobil uygulamanın sunucu tarafı,sunucuyla ağın iletişimi uygulamanın günlükleri ve yedekleri URL sorgu parametreleri gibi kaynaklar ilk korunması gereken yerlerdir 
+Güvenlik zafiyetlerin yaygın olarak görülen bu saldırı çeşidinin tespit edilmesi oldukça kolaydır hemen hemen bütün uygulamalar kullanıcı verilerini toplar ve işler bu durum saldırganlar açısından o uygulamaya daha çekici hale getirir bu nedenle toplanan kişisel veriler güçlü iletim ortamlarında taşınmalı güçlü şifreleme teknikleriyle şifrelenmeli ve güvenli depolama ortamlarında saklanmalıdır 
+
+Teknik etkiler etki seviyesi düşüktür çünkü veri gizliliği ihlallerinin genellikle sistem üzerinde bir bütün olarak çok az miktarın teknik etkisi vardır 
+
+Ticari etkiler etki oranı şiddetlidir gizlilik ihlallerinin ticari etkileri şunlarla sonuçlanabilir 
+1-yasal düzenlemelerin ihlali nedeniyle yaptırımlarla karşı karlıya kalınabilir 
+2-mağdurların açtığı davalar nedeniyle maddi zararlar yaşanabilir 
+3-ulusal yerel ve sosyal medyada yayımlanmasıyla birlikte hem müşteri hem de itibar kaybı yalanabilir 
+4-eğer kullanıcıların gerçek bilgileri çalınmışsa uygulamanın sağlayıcısına yönelik saldırılar için bile bu bilgiler kötüye kullanılabilir 
+
+Yetersiz gizlilik kontrollerini önleme yöntemleri
+1-işlenen tüm gerçek veriler doğru olarak girildimi mutlaka kontrol edilmelidir bu verilere gerçekten ihtiyaç duyulup duyulmadığı kontrol edilmelidir.
+2-gerçek verilerin bir kısmı kullanıcılar için daha az kritik olan başka bilgilerle değiştirilebilir mi kontrol edilmelidir 
+3-gerçek verilerin azaltılması uygulamayı etkileyecek mi etkilemeyecek mi kontrol edilmelidir 
+4-gerçek verilerin bir kısmı bir süre sonra silinebilir mi mutlaka kontrol edilmelidir 
+
+M7 yetersiz binary koruma 
+Tehdit unsuru uygulamaya özeldir uygulamanın içerisindeki binary kod yasa kod dosyalarının içerisinde bulunan zafiyetlere yönelik gerçekleştirilen saldırılardır saldırganlar bilgi toplamanın yanı sıra ücretli özelliklere ücretsiz erişim sağlamak veya diğer uygulama kontrollerini atlatabilmek amacıyla bu saldırıları gerçekleştirirler kolaylıkla istismar edilebilir çünkü genellikle uygulama binaryleri uygulama mağazalarından indirilebilir veya mobil cihazlardan kopyalanabilir bir uygulama binarysi tersine mühendislik (reverse engineering) ve kod değiştirme olmak üzere 2 farklı saldırıyla karşılaşır 
+
+Tersine mühendislik: uygulama binarysi derlenir ve gizli anahtarlar algoritmalar veya güvenlik açıkları gibi değerli bilgiler için uygulama taranır 
+
+Kod değiştirme: lisans kontrollerini kaldırmak ödeme duvarlarını aşmak veya kullanıcı olarak farklı avantajlar elde etmek için uygulamanın manipüle edilmesidir ayrıca uygulama kötü amaçlı kod içerecek şekilde değiştirilebilir 
+
+Güvenlik zafiyeti olarak görülme sıklığı yaygın tespit edilme durumu ise kolaydır 
+
+Etkiler: teknik açıdan bakıldığında uygulama binarysinden bilgi sızdırılabilir veya kod kurcalama tekniği ile uygulamanın çalışma şekli değiştirilebileceğinden teknik etki derecesi orta seviyedir 
+Ticari apilar veya benzerleri için api anahtarının sızdırılması,lisans kontrollerinin ortadan kaldırılması ve benzer özellikte rakip ürünler ortaya çıkabilmesi durumu neydenile etki seviyesi orta derecedir 
+
+Yetersiz binary korumasını önlemek için 
+1 uygulama binarysi tersine mühendislik yöntemleriyle anlaşılamaz hale getirilmelidir 
+2 gizleme ve manipülasyona engel olabilecek güvenlik kontrolleri ve kontrol akışı özellikle backend tarafında kullanılmalıdır 
+3 bütünlük kontrolleri yapılmalıdır bunu yaparken uygulamnaın yeniden dağıtılması ve değiştirilmesini engellemek için kötü amaçlı kod yazarak yetkisiz kopyalar varsa tespit edilmeli ve uygulama mağazalarından mutlaka kaldırılmalıdır 
+
+M8 hatalı güvenlik yapılandırmaları 
+Tehdit unsuru uygulamaya özel olup mobil uygulamadaki güvenlik açıklarını ve yetkisiz erişime yol açabilecek güvenlik ayarlarının izinlerin ve kontrollerin yanlış yapılandırılmasıyla ortaya çıkan zafiyetlerdir hatalı güvenlik yapılandırmalarından faydalanabilecek tehdit unsurları hassas verilere yetksiz erişim elde etmeyi veya kötü amaçlı eylemler gerçekleştirmeyi amaçlayan saldırganlardır 
+Saldırı vektörü olarak istismar edilebilme durumu zordur 
+Mobil uygulamalardaki hatalı güvenlik yapılandırmaları aşağıdaki gibi bazı saldırı vektörleri smacıyla istismar edilebilir 
+1 güvensiz varsayılan ayarlar
+2 uygunsux erişim kontrolleri 
+3 zayıf şifreleme veya hash kontrolü 
+4 güvenli iletişim eksikliği 
+5 korumasız depolama 
+6 güvensiz dosya isimleri 
+7 yanlış yapılandırılmış oturum yönetimi 
+Güvenlik zafiyeti olarak yaygınlığı ortak tespit edilebilirliği kolaydır ss çünkü HTTP de çalışır
+Etkiler teknik etki tarafında etki derecesi şiddetlidir bunun nedeni güvenlikle ilgili yanlış yapılandırmaların mobil uygulamalar üzerinde hassas verilere yetkisiz erişim,hesap ele geçirme veya kimlik taklidi,veri ihlalleri ve backend sistemlerinin tehlikeye girmesi gibi teknik etkilere sebebiyet verir
+Ticari etkilere bakıldığında ise yine etki derecesi şiddetlidir finansaal kayıplar veri kaybı yada hırsızlığı,kesinti be aksama ve marka itibarının zarar görmesi gibi ticari etkileri bulunmaktadir 
+
+Hatalı güvenlik yapılandırmalarını önleme yöntemleri 
+1 güvenli varsayılan yapılandırma ayarlanrının hassas bilgileri açığa çıkarmadığından veya gereksiz izinler sağlamadığından emin olunmalıdır 
+2 sabir kodlanmış varsayılan kimlik bilgileri 
+Kullanılmamalıdır 
+3 uygulama dosyalarını herkesin okuyabileceği veya herkesin yazabileceği şekilde aşırı izinli depolamktan kaçınılmalıdır 
+4 yalnızca uygulamanın düzgün çalışmadı için gerekli olan izinler talep edilmelidir 
+5 açık metin trafiğine izin verilmemeli mümkün olduğunca sertifika sabitleme kullanılmalıdır 
+6 uygulamanın üretim sürümünde hata ayıklama özellikleri devre dışı bırakılmalıdır 
+7 android cihazlarda yedekleme modunu devre dışı bırakarak uygulama verilerinin cihazın yedeklemesine dahil edilmesi önlenebilir ve uygulamadaki hassas verilerin cihaz yedeklenmesinde saklanmamasını sağlayabilirsiniz 
+8 yalnızca dışa aktarılması gereken etkinlikleri içerik sağlayaıcışarı ve hizmetleri dışa aktararak uygulama saldırı yüzeyi sınırlandırılabilir 
+
+M9 güvensiz veri depolama 
+Güvensiz veri depolama üzerinde bulunan güvenlik açıklarından yararlanılarak hassas bilgilere yetkisiz erişim sağlanabilir mobil uygulamalardaki güvensiz veri depolama tarafında sıklıkla görülen güvenlik açıkları şunlardır paylaşımlı depolama alanı zayıf şifreleme yetersiz veri koruması kullanıcı bilgilerinin uygunsuz kullanımı ve depolama alanlarının güncel tutulmamasıdır 
+BU zafiyette sıklıkla görülüen saldırı vektörleri; 
+cihazın dosya sistemine fiziksel veya yetkisiz olarak uzaktan erişim,zayıf şifrelemeyi kullanarak veri iletimlerini engelleme, cihazda bulunan kötü amaçlı yazılımları veya kötü amaçlı uygulamaları kullanma ve root edilmiş veya jailbreak yapılmış saldırı vektörleri arasında güvenlik önlemlerini aşma ve hassas verilere erişim sağlama bulunur 
+Bu zafiyetin yaygınlığı ve tespit edilme oranı ortalamadır bununla beraber teknik ve ticari etkisi ise maalesef şiddetlidir 
+Teknik etkiler: teknik etki kapsamında veri ihlalleri, güvenliği ihlal edilmiş kullanıcı hesapları veri tahribatı ve bütünlük sorunları uygulama kaynaklarına yetkisiz erişim itibar ve güven zedelenmesi veri korumayla ilgili standartlara uyumlulukta ihlaller yaşanabilir 
+Ticari etki: itibara zarar,müşteri güveninin kaybı, yasal ve düzenleyici veri koruma cezaları, mali sonuçlar ve rekabet dezavantajı olarak sıralanabilir 
+
+Güvensiz veri depolama nasıl önlenir:
+1 güçlü şifre kullanılmalaıdr
+2 HTTPS ssl tls gibi güçlü ve güvenli veri iletişim protokolleri kullanılmalıdır 
+3güvenli depolama mekanizmaları İOS için  Keychain android için keystore gibi tercih edilmelidir 
+4 uygun ve güçlü erişim kontrolleri kullanılmalıdır rol tabanlı erişim kontrolleri sağlanmalıdır 
+5 giriş verileri doğrulanmalı ve enjeksiyon saldırılarının önüne geçebilmek için veriler temizlenmelidir 
+6 güvenli oturum yönetimi uygulanmalıdır 
+Rastgele oluşturulmuş oturum tokenları kullanılmamalı ve herhangi bir kullanıcıya ait oturum verileri hem istemci hem sunucu tarafında güvenli bir şekilde depolanmalıdır 
+7 bağımlı yazılımlar düzenli olarak güncellenmeli ve yama uygulaması yapılmalıdır özellikle kütüphaneler çerçeveler ve 3. Taraf hizmetler sürekli güncellenmelidir 
+
+
+Sınav sorusu giriş verileri doğrulanmazsa hangi saldırı çeşidi ile karşılaşılır cevap kötü amaçlı yazılım veya içerden dışarı sızıntı 
+
+M10 yetersiz şifreleme 
+Tehdit unsuru olarak uygulamaya özel gerçekleştirilen bu saldırıların amacı veri gizliliği bütünlüğü ve gerçekliğine zarar vermektir verilerin şifresini çözmek için kriptografik süreçler manipüle edilir ve şifreleme anahtarları sızdırılır istismar edilme seviyesi ortalamadır çünkü burada şifrelemenin güçlü hale getirilmesi birebir kullanıcının kendisi ile ilgilidir saldırganlar sıklıkla buruteforce ve side channel(yan kanal) saldırıları ile bu zafiyetten faydalanır 
+Bu zafiyetin yaygınlık seviyesi ve tespit edilebilirdik süresi ortalamadır çünkü burada 
+Eğer parola düz metin olarak tutulmuyorsa parolayı kırmanın tek yolu hash fonksiyonlarını çözmek ve uygulamaya özel olarak bunları kullanmaktan geçer 
+Bu saldırıların teknik ve ticari etkisi şiddetlidir teknik olarak bakıldığında bu güvenlik açığı kişisel ve hassas verilerin mobil cihazdan yetkisiz olarak alınmasına neden olur ticari etkileri ise veri ihlali fikri mülkiyet kaybı finansal kayıplar ve uyumluluk ile yasal sonuçlara bağlı yaptırımlardır 
+Yetersiz şifrelemeyi önlemenin yolları
+1 güçlü şifreleme algoritmaları kullanılmalıdır 
+AES rsa ecc
+2 yeterli anahtar uzunluğu sağlanmalıdır 
+3 güvenli anahtar yönetimi uygulamaları takip edilmelidir hsm( hardware securty modüle) şifreleme anahtarlarını güvenli bir şekilde saklamak için anahtar kasaları veya donanım güvenlik modülleri (hsm) gibi güvenli anahtar yönetimi teknikleri kullanılmalıdır 
+4 şifreleme işlemleri doğru şekilde uygulanmalıdır yerleşik kriptografik kütüphanelere veya çerçevelere bağlı kalarak mobil uygulama üzerinde şifreleme ve şifre çözeme adımları uygulanmalıdır 
+Hatalara ve güvenlik açıklarına daha yatkın oldukları için özel şifreleme uygulamalarından kaçınılmalıdır 
+5 şifreleme anahtarları güvenli bir şekilde depolanmalıdır 
+6 güvenli aktarım katmanı ve protokolü uygulanmalı geçerli sertifika doğrulamadı yapılmalı ve mobil uygulama ile backend sistemleri arasında güvenli bağlantı sağlanmalıdır 
+7 şifre doğrulama ve kimlik doğrulama adımları mutlaka güçlü olmalı sertifika dijital imza veya kimlik doğrulama için kullanılan diğer mekanizmalar uygun doğrulama adımlarıyla seçilmelidir 
+8 güvenlik önlemleri düzenli olarak güncellenmelidir 
+9 periyodik aralıklarla güvenlik testi yapılmalıdır 
+10 sha-256 veya bcrypt gibi yaygın olarak tanınan ve kriptografik olarak güvenli hash fonksiyonları seçilmelidir 
+11 parolaları hash ederken her saman güçlü bir rastgele tuz kullanılmalıdır  tuzlama saldırganların parolaları kırmak için önceden hesaplanmış tabloları veya gök kulağı tablolarını kullanmasını zorlaştırarak ekstra bir güvenlik katmanı ekler 
+12 anahtar türetme işlevleri kullanılmalıdır sıklıkla kullanılan ve parola kırmada işimize yarayan bcrypt,scrypt yada pbkdf 2 gibi anahtar türetme işlevleri kullanılabilir bu anahtar türetme işlevleri özellikle bruteforce ve MİTM (ortadaki adam) gibi saldırıları yavaşlatmak için ek güvenlik önlemleri içerir 
+
+
+Sınav sorusu side channel nedir 
+Kodun içerisindeki zafiyetlerin belirlemeye yönelik bir saldırı çeşididir 
+
